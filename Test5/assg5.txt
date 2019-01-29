@@ -1,0 +1,47 @@
+Square Wave
+1000: Mov al,80
+1002: Out 67,al
+1004: Mov al,01
+1006: Out 63,al
+1008: Mov al,00
+100A: Out 61,al
+100C: Mov cl,ff
+100E: Dec cl
+100F: Jnz 100E
+1012: mov al,FF
+1014: Out 61,al
+1016: Mov cl,ff
+1018: Dec cl
+1019: Jnz 1018
+101C: Jmp 1008
+101F: INT 3
+
+
+Program to generate ramp wave
+1000: Mov al,80
+1002: Out 67,al
+1004: Mov al,01
+1006: Out 63,al
+1008: Mov al,00
+100A: Out 61,al
+100C: Inc al
+100E: Cmp al,ff 
+100F: Jne 100A
+1012: Jmp 1008
+
+
+Program to generate Triangular wave
+1000: Mov al,80
+1002: Out 67,al
+1004: Mov al,01
+1006: Out 63,al
+1008: Mov al,00
+100A: Out 61,al
+100C: Inc al
+100E: Cmp al,ff
+100F: Jne 100A
+1011: Out 61,al
+1013: Dec al
+1014: Cmp al,00
+1016: Jne 1011
+1018: Jmp 1008
